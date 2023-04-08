@@ -16,5 +16,5 @@ jobs:
           fetch-depth: 0
       - name: Push to hub
         env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          NAS_TOKEN: ${{ secrets.NAS_TOKEN }}
         run: git push --force https://hf-nikhil:$NAS_TOKEN@huggingface.co/spaces/hf-nikhil/news-articles-sorting main
