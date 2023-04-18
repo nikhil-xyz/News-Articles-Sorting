@@ -19,9 +19,15 @@ A fully functional EXAMPLE project written in Python showing how to write classi
 - Kaggle Dataset https://www.kaggle.com/c/learn-ai-bbc/data
 
 - The trained model can be picked using pickle
-    - install picke : pip install pickle5
-    - dump pickle : pickle.dump(model_name, open('model.pkl','wb'))
-    - load model : model = pickle.load(open('model.pkl', 'rb'))
+    - install picke :
+     
+    		pip install pickle5
+    - dump pickle : 
+    
+    		pickle.dump(model_name, open('model.pkl','wb'))
+    - load model : 
+    
+    		model = pickle.load(open('model.pkl', 'rb'))
 - Use the same strategy for vectorizer
 
 
