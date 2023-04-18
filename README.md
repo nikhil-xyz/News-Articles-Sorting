@@ -31,7 +31,7 @@ A fully functional EXAMPLE project written in Python showing how to write classi
 
 - gradio interface
 
-    interface = gradio.Interface(fn=/* preprocessing function */,
+    		interface = gradio.Interface(fn=/* preprocessing function */,
 
                     title = /* title-string */,
 
@@ -39,7 +39,7 @@ A fully functional EXAMPLE project written in Python showing how to write classi
 
                     outputs='text')
 
-    interface.launch(server_name="0.0.0.0", server_port=7860)
+    		interface.launch(server_name="0.0.0.0", server_port=7860)
     
 - The 'fn' parameter will specify the the fuction where input data
   will be preprocessed.
