@@ -53,8 +53,8 @@ A fully functional EXAMPLE project written in Python showing how to write classi
 - The root user could cause permission issues, non-root user
   should be used.
 
-  RUN useradd -m -u 1000 user
-  USER user
+  	RUN useradd -m -u 1000 user
+  	USER user
 
 - Set home to the user's home directory
 
