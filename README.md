@@ -9,9 +9,9 @@ A fully functional EXAMPLE project written in Python showing how to write classi
 
 
 
-## Demo
+## Screenshot
 
-https://github.com/nikhil-xyz/News-Articles-Sorting/blob/main/ezgif.com-optimize.gif
+![Screenshot (120)](https://user-images.githubusercontent.com/78032383/232694733-07fa1d4a-a6a1-4c54-ba87-5b2b136cb5a9.png)
 
 
 ## Roadmap
