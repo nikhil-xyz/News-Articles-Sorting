@@ -1,5 +1,6 @@
 numpy
 pandas
+kagglehub
 scikit-learn
 matplotlib
 evidently
@@ -13,9 +14,10 @@ python-box==6.0.2
 from_root
 dill
 typing
-boto3
 dagshub
-mypy-boto3-s3
 gradio
+nltk
+tensorflow
+keras
 
 -e .
