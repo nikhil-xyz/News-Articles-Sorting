@@ -19,5 +19,6 @@ gradio
 nltk
 tensorflow
 keras
+pymongo
 
 -e .
