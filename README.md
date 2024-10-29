@@ -10,6 +10,9 @@ information of interest quickly and effectively. This way, the machine learning 
 automated news classification could be used to identify topics of untracked news and/or
 make individual suggestions based on the user’s prior interests.
 
+## Tools
+- Data Link : https://www.kaggle.com/datasets/jacopoferretti/bbc-articles-dataset
+
 ## Git Commands
 ```
 git add .

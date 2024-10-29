@@ -20,5 +20,6 @@ nltk
 tensorflow
 keras
 pymongo
+spacy==3.6.1
 
 -e .
