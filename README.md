@@ -26,6 +26,45 @@ conda create -n <environament_name> python=<version> -y
 conda activate <environament_name>
 conda deactivate
 ```
+
+## MongoDB for Data Storage and Retrieval
+
+MongoDB is a NoSQL, document-oriented database. It stores data in flexible, JSON-like documents called BSON, making it suitable for handling data that doesn't fit well into traditional rows and columns.
+
+### Connection Syntax
+
+```
+import os
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
+
+uri = os.getenv('MONGODB_URI')
+
+# Create a new client and connect to the server
+client = MongoClient(uri, server_api=ServerApi('1'))
+
+# Send a ping to confirm a successful connection
+try:
+    client.admin.command('ping')
+    print("Pinged your deployment. You successfully connected to MongoDB!")
+except Exception as e:
+    print(e)
+```
+### Data Storage Syntax
+
+```
+data_base = client[DB_NAME]
+collection = data_base[COLLECTION_NAME]
+
+rec = collection.insert_many(data)
+```
+
+### Data Retrieval Syntax
+
+```
+records = collection.find()
+```
+
 ## Evaluation
 These bars represent the proportion of correctly classified instances for each target category from testing data.
 
