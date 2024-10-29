@@ -27,11 +27,11 @@ conda activate <environament_name>
 conda deactivate
 ```
 ## Evaluation
-These bars represent the proportion of correctly classified instances for each target category.
+These bars represent the proportion of correctly classified instances for each target category from testing data.
 
 ![Image](https://github.com/nikhil-xyz/News-Articles-Sorting/blob/main/flowcharts/accuracy_bar_plot.png)
 
-**Confusion Matrix :** A confusion matrix is a table that is often used to describe the performance of a classification model (or "classifier") on a set of test data for which the true values are known. It visualizes the performance of a classification model by showing the counts of True Positives, True Negatives, False Positives, and False Negatives.
+**Confusion Matrix :** A confusion matrix is a table that is often used to describe the performance of a classification model (or "classifier") on a set of test data for which the true values are known. It visualizes the performance of a classification model by showing the counts of True Positives, True Negatives, False Positives, and False Negatives. Following confusion matrix contains predictions from the testing data.
 
 ![Image](https://github.com/nikhil-xyz/News-Articles-Sorting/blob/main/flowcharts/confusion_matrix.png)
 
@@ -40,5 +40,6 @@ These bars represent the proportion of correctly classified instances for each t
 - **Precision:** Out of the positive predictions, how many were actually positive (true positives / (true positives + false positives)). Focuses on minimizing false positives.
 - **Recall:** Out of the actual positives, how many were correctly predicted (true positives / (true positives + false negatives)). Focuses on minimizing false negatives.
 - **F1-score:** Harmonic mean of precision and recall. Provides a balance between the two metrics.
+Following bar chart shows the evaluation of testing data on different matrices. 
 
 ![Image](https://github.com/nikhil-xyz/News-Articles-Sorting/blob/main/flowcharts/model_performance_bar_plot.png)
