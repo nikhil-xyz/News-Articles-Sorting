@@ -10,7 +10,15 @@ information of interest quickly and effectively. This way, the machine learning 
 automated news classification could be used to identify topics of untracked news and/or
 make individual suggestions based on the user’s prior interests.
 
-## Tools
+## ToolsAnaconda: https://www.anaconda.com/
+- Vs code: https://code.visualstudio.com/download
+- Git: https://git-scm.com/
+- Flowchart: https://whimsical.com/
+- DVC : https://dvc.org/
+- MlFlow : https://mlflow.org/
+- Dagshub : https://dagshub.com/
+- Whimsical : https://whimsical.com/
+- MongoDB: https://account.mongodb.com/account/login
 - Data Link : https://www.kaggle.com/datasets/jacopoferretti/bbc-articles-dataset
 
 ## Git Commands
@@ -82,3 +90,8 @@ These bars represent the proportion of correctly classified instances for each t
 Following bar chart shows the evaluation of testing data on different matrices. 
 
 ![Image](https://github.com/nikhil-xyz/News-Articles-Sorting/blob/main/flowcharts/model_performance_bar_plot.png)
+
+## Model Summary
+A model summary provides a concise overview of a machine learning model's architecture
+
+![summary](model_summary.png)

@@ -1,0 +1,37 @@
+stages:
+  data_ingestion:
+    cmd: python news_project/pipeline/data_ingestion_pipeline.py
+    deps:
+      - news_project/pipeline/data_ingestion_pipeline.py
+    outs:
+      - artifact/data_ingestion/feature_store/articles.csv
+      - artifact/data_ingestion/ingested/train.csv
+      - artifact/data_ingestion/ingested/test.csv
+
+
+  data_transformation:
+    cmd: python news_project/pipeline/data_transformation_pipeline.py
+    deps:
+      - news_project/pipeline/data_transformation_pipeline.py
+      - artifact/data_ingestion/feature_store/articles.csv
+      - artifact/data_ingestion/ingested/train.csv
+      - artifact/data_ingestion/ingested/test.csv
+    outs:
+      - artifact/data_transformation/transformed/train_x.npy
+      - artifact/data_transformation/transformed/train_y.npy
+      - artifact/data_transformation/transformed/test_x.npy
+      - artifact/data_transformation/transformed/test_y.npy
+      - artifact/data_transformation/transformed_object/tokenizer.pkl
+
+  
+  model_training:
+    cmd: python news_project/pipeline/model_training_pipeline.py
+    deps:
+      - news_project/pipeline/model_training_pipeline.py
+      - artifact/data_transformation/transformed/train_x.npy
+      - artifact/data_transformation/transformed/train_y.npy
+      - artifact/data_transformation/transformed_object/tokenizer.pkl
+    outs:
+      - artifact/model_trainer/trained_model/model.h5
+  
+    

@@ -1,0 +1,86 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python news_project/pipeline/data_ingestion_pipeline.py
+    deps:
+    - path: news_project/pipeline/data_ingestion_pipeline.py
+      hash: md5
+      md5: def5990114758da6230021266907a22a
+      size: 1361
+    outs:
+    - path: artifact/data_ingestion/feature_store/articles.csv
+      hash: md5
+      md5: 93bc0a7edd0874e7324f4614a4f9765b
+      size: 5087307
+    - path: artifact/data_ingestion/ingested/test.csv
+      hash: md5
+      md5: 5f7c41dcfb7246a9c783e264aba716c9
+      size: 1053270
+    - path: artifact/data_ingestion/ingested/train.csv
+      hash: md5
+      md5: daa9d52fae709969bc93a40b1ecae824
+      size: 4034050
+  data_transformation:
+    cmd: python news_project/pipeline/data_transformation_pipeline.py
+    deps:
+    - path: artifact/data_ingestion/feature_store/articles.csv
+      hash: md5
+      md5: 93bc0a7edd0874e7324f4614a4f9765b
+      size: 5087307
+    - path: artifact/data_ingestion/ingested/test.csv
+      hash: md5
+      md5: 5f7c41dcfb7246a9c783e264aba716c9
+      size: 1053270
+    - path: artifact/data_ingestion/ingested/train.csv
+      hash: md5
+      md5: daa9d52fae709969bc93a40b1ecae824
+      size: 4034050
+    - path: news_project/pipeline/data_transformation_pipeline.py
+      hash: md5
+      md5: 7095b4b9f8b8e449e1abbcf7fe6951eb
+      size: 1115
+    outs:
+    - path: artifact/data_transformation/transformed/test_x.npy
+      hash: md5
+      md5: 9c4eca115ef2bb669120aabbdbf25ce6
+      size: 3930368
+    - path: artifact/data_transformation/transformed/test_y.npy
+      hash: md5
+      md5: 5c5f7166ea43a020a09520c31f9e734a
+      size: 3688
+    - path: artifact/data_transformation/transformed/train_x.npy
+      hash: md5
+      md5: 6f81231958f834980b875cec37d0d682
+      size: 15721088
+    - path: artifact/data_transformation/transformed/train_y.npy
+      hash: md5
+      md5: fab1104d83016bb76c88be0a9173bd80
+      size: 14368
+    - path: artifact/data_transformation/transformed_object/tokenizer.pkl
+      hash: md5
+      md5: 8aacfc2ebe033f78a70710ecde9ca2d3
+      size: 1181721
+  model_training:
+    cmd: python news_project/pipeline/model_training_pipeline.py
+    deps:
+    - path: artifact/data_transformation/transformed/train_x.npy
+      hash: md5
+      md5: 6f81231958f834980b875cec37d0d682
+      size: 15721088
+    - path: artifact/data_transformation/transformed/train_y.npy
+      hash: md5
+      md5: fab1104d83016bb76c88be0a9173bd80
+      size: 14368
+    - path: artifact/data_transformation/transformed_object/tokenizer.pkl
+      hash: md5
+      md5: 8aacfc2ebe033f78a70710ecde9ca2d3
+      size: 1181721
+    - path: news_project/pipeline/model_training_pipeline.py
+      hash: md5
+      md5: 01c40c4c5a5363539e9a7f516f76b378
+      size: 1037
+    outs:
+    - path: artifact/model_trainer/trained_model/model.h5
+      hash: md5
+      md5: f5b2cf1420951661e33ea3b7f3f0cc8d
+      size: 77338381
