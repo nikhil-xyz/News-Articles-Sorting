@@ -4,6 +4,7 @@ from news_project.exception import ArticleException
 from news_project.pipeline.data_ingestion_pipeline import DataIngestionPipeline 
 from news_project.pipeline.data_transformation_pipeline import DataTransformationPipeline
 from news_project.pipeline.model_training_pipeline import ModelTrainingPipeline
+from news_project.pipeline.model_evaluation_pipeline import ModelEvaluationPipeline
 
 def run_pipeline():
     """
@@ -18,6 +19,9 @@ def run_pipeline():
 
         training = ModelTrainingPipeline()
         training.main()
+
+        evaluation = ModelEvaluationPipeline()
+        evaluation.main()
 
 
     except Exception as e:

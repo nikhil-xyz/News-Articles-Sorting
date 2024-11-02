@@ -84,3 +84,22 @@ stages:
       hash: md5
       md5: f5b2cf1420951661e33ea3b7f3f0cc8d
       size: 77338381
+  model_evaluation:
+    cmd: python news_project/pipeline/model_evaluation_pipeline.py
+    deps:
+    - path: artifact/data_transformation/transformed/test_x.npy
+      hash: md5
+      md5: 9c4eca115ef2bb669120aabbdbf25ce6
+      size: 3930368
+    - path: artifact/data_transformation/transformed/test_y.npy
+      hash: md5
+      md5: 5c5f7166ea43a020a09520c31f9e734a
+      size: 3688
+    - path: artifact/model_trainer/trained_model/model.h5
+      hash: md5
+      md5: f5b2cf1420951661e33ea3b7f3f0cc8d
+      size: 77338381
+    - path: news_project/pipeline/model_evaluation_pipeline.py
+      hash: md5
+      md5: 4a4168c9cd3e00851f5c6ffd98302080
+      size: 1075

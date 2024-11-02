@@ -79,6 +79,12 @@ A model summary provides a concise overview of a machine learning model's archit
 
 ![summary](model_summary.png)
 
+
+## mlflow URI
+Visit this url to compare all the experiment conducted during the evaluation by yourself.
+
+project_mlflow_uri : https://dagshub.com/nikhil.sonkusare94/News-Articles-Sorting
+
 ## Evaluation
 These bars represent the proportion of correctly classified instances for each target category from testing data.
 

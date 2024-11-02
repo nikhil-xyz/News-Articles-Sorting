@@ -14,6 +14,10 @@ class Model_Architecture:
         self._param_config = read_yaml_file(file_path=PARAMS_FILE_PATH)
 
     def get_image_summary(self):
+        """
+        This function will be responsible for covnerting '.txt' file 
+        containing the model summary into the '.png' file
+        """
         # Open the text file
         with open('model_summary.txt', 'r') as f:
             text = f.read()
@@ -33,6 +37,9 @@ class Model_Architecture:
 
 
     def get_rnn_architecture(self):
+        """
+        This function will create the RNN architecture for the news articles sorting model
+        """
         model = Sequential()
         # Create the embedding layer
         model.add(Embedding(self._param_config['MAX_WORDS'], self._param_config['EMBEDDING_SIZE']))

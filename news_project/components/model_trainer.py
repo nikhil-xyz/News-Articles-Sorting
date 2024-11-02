@@ -31,12 +31,14 @@ class ModelTraining:
         train_y     : Numpy array containing the training data labels
         tokenizer   : Tokenizer object used for text preprocessing
         """
-        
-        train_x = load_numpy_array_data(self.model_training_config.transformed_train_file_path)
-        train_y = load_numpy_array_data(self.model_training_config.transformed_train_label_path)
-        tokenizer = load_object(self.model_training_config.transformed_object_file_path)
+        try:
+            train_x = load_numpy_array_data(self.model_training_config.transformed_train_file_path)
+            train_y = load_numpy_array_data(self.model_training_config.transformed_train_label_path)
+            tokenizer = load_object(self.model_training_config.transformed_object_file_path)
 
-        return train_x, train_y, tokenizer
+            return train_x, train_y, tokenizer
+        except Exception as e:
+            raise ArticleException(e, sys) from e
 
 
     def train_model(self, train_x, train_y, tokenizer):
@@ -52,17 +54,21 @@ class ModelTraining:
         Returns:
         model      : Trained model
         """
-        logging.info('Retrieving RNN Architecture')
-        model_architecture = Model_Architecture()
 
-        logging.info('Setting up training parameters')
-        model = model_architecture.get_rnn_architecture()
+        try:
+            logging.info('Retrieving RNN Architecture')
+            model_architecture = Model_Architecture()
 
-        logging.info('Training the model')
-        model.fit(train_x, train_y, epochs=self._param_config['EPOCH'], batch_size=self._param_config['BATCH_SIZE'],
-                                                validation_split=self._param_config['VALIDATION_SPLIT'])
+            logging.info('Setting up training parameters')
+            model = model_architecture.get_rnn_architecture()
 
-        return model
+            logging.info('Training the model')
+            model.fit(train_x, train_y, epochs=self._param_config['EPOCH'], batch_size=self._param_config['BATCH_SIZE'],
+                                                    validation_split=self._param_config['VALIDATION_SPLIT'])
+
+            return model
+        except Exception as e:
+            raise ArticleException(e, sys) from e
     
 
 
@@ -71,14 +77,18 @@ class ModelTraining:
         Method Name :   initiate_model_trainer
         Description :   This method initiates the model training components of training pipeline
         """
-        logging.info('Entered initiate_model_trainer method of ModelTraining class')
-        logging.info('Retrieving training data and tokenizer')
-        train_x, train_y, tokenizer = self.get_training_data()
 
-        logging.info('Training the model')
-        train_model = self.train_model(train_x, train_y, tokenizer)
+        try:
+            logging.info('Entered initiate_model_trainer method of ModelTraining class')
+            logging.info('Retrieving training data and tokenizer')
+            train_x, train_y, tokenizer = self.get_training_data()
 
-        logging.info('Storing the trained model')
-        save_object(self.model_training_config.trained_model_file_path, train_model)
+            logging.info('Training the model')
+            train_model = self.train_model(train_x, train_y, tokenizer)
 
-        logging.info('Exited initiate_model_trainer method of ModelTraining class')
+            logging.info('Storing the trained model')
+            save_object(self.model_training_config.trained_model_file_path, train_model)
+
+            logging.info('Exited initiate_model_trainer method of ModelTraining class')
+        except Exception as e:
+            raise ArticleException(e, sys) from e

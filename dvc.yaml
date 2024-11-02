@@ -35,3 +35,10 @@ stages:
       - artifact/model_trainer/trained_model/model.h5
   
     
+  model_evaluation:
+    cmd: python news_project/pipeline/model_evaluation_pipeline.py
+    deps:
+      - news_project/pipeline/model_evaluation_pipeline.py
+      - artifact/data_transformation/transformed/test_x.npy
+      - artifact/data_transformation/transformed/test_y.npy
+      - artifact/model_trainer/trained_model/model.h5
