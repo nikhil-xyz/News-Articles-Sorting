@@ -36,6 +36,15 @@ conda activate <environament_name>
 conda deactivate
 ```
 
+## Environment Variables
+```
+export MONGODB_URI = "mongodb+srv://<username>:<password>...."
+export AZURE_CLIENT_ID = <AZURE_CLIENT_ID>
+export AZURE_TENANT_ID = <AZURE_TENANT_ID>
+export AZURE_CLIENT_SECRET = <AZURE_CLIENT_SECRET>
+export AZURE_STORAGE_URL = <AZURE_STORAGE_URL>
+```
+
 ## MongoDB for Data Storage and Retrieval
 
 MongoDB is a NoSQL, document-oriented database. It stores data in flexible, JSON-like documents called BSON, making it suitable for handling data that doesn't fit well into traditional rows and columns.
