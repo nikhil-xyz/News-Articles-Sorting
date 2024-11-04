@@ -101,5 +101,20 @@ stages:
       size: 77338381
     - path: news_project/pipeline/model_evaluation_pipeline.py
       hash: md5
-      md5: 4a4168c9cd3e00851f5c6ffd98302080
-      size: 1075
+      md5: aa4e3017c98e8df4405255701b4201a6
+      size: 1096
+  model_pusher:
+    cmd: python news_project/pipeline/model_pusher_pipeline.py
+    deps:
+    - path: artifact/data_transformation/transformed_object/tokenizer.pkl
+      hash: md5
+      md5: 8aacfc2ebe033f78a70710ecde9ca2d3
+      size: 1181721
+    - path: artifact/model_trainer/trained_model/model.h5
+      hash: md5
+      md5: f5b2cf1420951661e33ea3b7f3f0cc8d
+      size: 77338381
+    - path: news_project/pipeline/model_pusher_pipeline.py
+      hash: md5
+      md5: 95e39fdf23181202c0edea740a9e07da
+      size: 909

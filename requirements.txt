@@ -11,7 +11,6 @@ mlflow
 PyYAML
 ensure==1.0.2
 python-box==6.0.2
-from_root
 dill
 typing
 dagshub
@@ -22,5 +21,8 @@ keras
 pymongo
 spacy==3.6.1
 Pillow
+azure-identity
+azure-keyvault-secrets
+azure-storage-blob
 
 -e .

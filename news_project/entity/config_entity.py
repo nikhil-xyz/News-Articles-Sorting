@@ -81,6 +81,18 @@ class DataTransformationConfig:
 
 @dataclass
 class ModelTrainingConfig:
+    """
+    Configures the model training process.
+    
+    Attributes:
+    data_transformation_dir (str)       : Directory to store training data
+    transformed_train_file_path (str)   : Path to the transformed training file containing the preprocessed data.
+    transformed_train_label_path (str)  : Path to the transformed training label file containing the preprocessed labels.
+    transformed_object_file_path (str)  : Path to the object file containing the preprocessing transformations.
+
+    model_trainer_dir (str)             : Directory to store trained models
+    trained_model_file_path (str)       : Path to the trained model file containing the trained model.
+    """
     data_transformation_dir: str = os.path.join(training_pipeline_config.artifact_dir, DATA_TRANSFORMATION_DIR_NAME)
     transformed_train_file_path: str = os.path.join(data_transformation_dir, DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR,
                                                     TRANSFORMED_TRAIN_FILE_NAME)
@@ -92,11 +104,23 @@ class ModelTrainingConfig:
 
 
     model_trainer_dir: str = os.path.join(training_pipeline_config.artifact_dir, MODEL_TRAINER_DIR_NAME)
-    trained_model_file_path: str = os.path.join(model_trainer_dir, MODEL_TRAINER_TRAINED_MODEL_DIR, MODEL_TRAINER_TRAINED_MODEL_NAME)
+    trained_model_file_path: str = os.path.join(model_trainer_dir, MODEL_TRAINER_TRAINED_MODEL_DIR, 
+                                                    MODEL_TRAINER_TRAINED_MODEL_NAME)
 
 
 @dataclass
 class ModelEvaluationConfig:
+    """
+    Configures the model evaluation process.
+    
+    Attributes:
+    data_transformation_dir (str)       : Directory to store evaluation data
+    transformed_test_file_path (str)    : Path to the transformed test file containing the preprocessed data.
+    transformed_test_label_path (str)   : Path to the transformed test label file containing the preprocessed labels.
+    transformed_object_file_path (str)  : Path to the object file containing the preprocessing transformations.
+    model_trainer_dir (str)             : Directory to store trained models
+    trained_model_file_path (str)       : Path to the trained model file containing the trained model.
+    """
     data_transformation_dir: str = os.path.join(training_pipeline_config.artifact_dir, DATA_TRANSFORMATION_DIR_NAME)
     transformed_test_file_path: str = os.path.join(data_transformation_dir, DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR,
                                                     TRANSFORMED_TRAIN_FILE_NAME)
@@ -107,4 +131,24 @@ class ModelEvaluationConfig:
                                                      TOKENIZER_OBJECT_FILE_NAME)
 
     model_trainer_dir: str = os.path.join(training_pipeline_config.artifact_dir, MODEL_TRAINER_DIR_NAME)
-    trained_model_file_path: str = os.path.join(model_trainer_dir, MODEL_TRAINER_TRAINED_MODEL_DIR, MODEL_TRAINER_TRAINED_MODEL_NAME)
+    trained_model_file_path: str = os.path.join(model_trainer_dir, MODEL_TRAINER_TRAINED_MODEL_DIR, 
+                                                    MODEL_TRAINER_TRAINED_MODEL_NAME)
+
+
+@dataclass
+class ModelPusherConfig:
+    """
+    Configures the model pushing process.
+    
+    Attributes:
+    data_transformation_dir (str)      : Directory to store evaluation data
+    transformed_object_file_path (str) : Path to the object file containing the preprocessing transformations.
+
+    model_trainer_dir (str)            : Directory to store trained models
+    trained_model_file_path (str)      : Path to the trained model file containing the trained model.
+    """
+    data_transformation_dir: str = os.path.join(training_pipeline_config.artifact_dir, DATA_TRANSFORMATION_DIR_NAME)
+    transformed_object_file_path: str = os.path.join(data_transformation_dir, DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR)
+
+    model_trainer_dir: str = os.path.join(training_pipeline_config.artifact_dir, MODEL_TRAINER_DIR_NAME)
+    trained_model_file_path: str = os.path.join(model_trainer_dir, MODEL_TRAINER_TRAINED_MODEL_DIR)
