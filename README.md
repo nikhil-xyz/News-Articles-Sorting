@@ -101,7 +101,7 @@ with mlflow.start_run():
 ```
 
 ### Experiment Tracking
-![mlflow](https://github.com/nikhil-xyz/News-Articles-Sorting/blob/main/flowcharts/dvc_workflow.png)
+![mlflow](https://github.com/nikhil-xyz/News-Articles-Sorting/blob/main/flowcharts/mlflow.png)
 
 
 ### mlflow URI
