@@ -78,8 +78,6 @@ MODEL_TRAINER_TRAINED_MODEL_NAME: str = "model.h5"
 Model Pusher constants 
 """
 # MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE: float = 0.02
-MODEL_BUCKET_NAME = "laptop-model2024"
-MODEL_PUSHER_S3_KEY = "model-registry"
-
-APP_HOST = "0.0.0.0"
-APP_PORT = 8080
+CONTAINER_NAME = 'newsarticlecontainer'
+BLOB_NAME_MODEL = 'model.h5'
+BLOB_NAME_TOKENIZER = 'tokenizer.pkl'

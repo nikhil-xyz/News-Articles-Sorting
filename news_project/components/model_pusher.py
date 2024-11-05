@@ -4,6 +4,7 @@ from news_project.exception import ArticleException
 
 from news_project.entity.config_entity import ModelPusherConfig
 from news_project.configuration.azure_connection import BlobClient
+from news_project.constants import CONTAINER_NAME
 
 
 class ModelPusher:
@@ -11,7 +12,7 @@ class ModelPusher:
         try:
             self.model_pusher_config = model_pusher_config
             self.client = BlobClient()
-            self.container_name = 'newsarticlecontainer' 
+            self.container_name = CONTAINER_NAME
         except Exception as e:
             raise ArticleException(e, sys) from e
     

@@ -89,7 +89,22 @@ A model summary provides a concise overview of a machine learning model's archit
 ![summary](model_summary.png)
 
 
-## mlflow URI
+## MLFLOW
+MLflow Experiment Tracking allows you to record and compare different runs of your machine learning experiments. It helps you keep track of parameters, metrics, and artifacts associated with each experiment run, facilitating model comparison, analysis, and selection. By providing a centralized repository for experiment data, MLflow helps data scientists and engineers understand model behavior, reproduce experiments, and collaborate more effectively.
+
+### Syntax
+```
+import mlflow
+with mlflow.start_run():
+  mlflow.log_param('parameter name', 'value')
+  mlflow.log_metric('metric name', 1)
+```
+
+### Experiment Tracking
+![mlflow](https://github.com/nikhil-xyz/News-Articles-Sorting/blob/main/flowcharts/dvc_workflow.png)
+
+
+### mlflow URI
 Visit this url to compare all the experiment conducted during the evaluation by yourself.
 
 project_mlflow_uri : https://dagshub.com/nikhil.sonkusare94/News-Articles-Sorting.mlflow

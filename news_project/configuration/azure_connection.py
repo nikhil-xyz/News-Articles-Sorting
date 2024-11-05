@@ -1,4 +1,5 @@
 import os
+import sys
 from azure.identity import ClientSecretCredential
 from azure.storage.blob import BlobServiceClient
 from news_project.exception import ArticleException
@@ -28,10 +29,10 @@ class BlobClient:
                     )
             logging.info("Azure Blob Client initialization successful")
         except Exception as e:
-            raise ArticleException(f"Error in initializing Azure Blob Client: {e}") from e
+            raise ArticleException(e, sys) from e
 
 
-    def get_blob_data(self, container_name, blob_name):
+    def get_binary_blob_data(self, container_name, blob_name):
         """
         Downloads the specified blob from the Azure Blob Storage container.
         
@@ -48,10 +49,12 @@ class BlobClient:
 
             # download blob data 
             blob_client = container_client.get_blob_client(blob= blob_name)
-            data = blob_client.download_blob().readall().decode("utf-8")
-            return data
+            print(blob_name)
+            binary_data = blob_client.download_blob().readall()
+            print("________________________________________________________________here")
+            return binary_data
         except Exception as e:
-            raise ArticleException(f"Error in retrieving blob data: {e}") from e
+            raise ArticleException(e, sys) from e
 
 
     def list_blob(self, container_name):
@@ -71,8 +74,7 @@ class BlobClient:
             for blob in container_client.list_blobs():
                 return blob.name
         except Exception as e:
-            raise ArticleException(f"Error in listing blobs: {e}") from e
-
+            raise ArticleException(e, sys) from e
 
     def get_multi_blob_data(self, container_name):
         """
@@ -94,7 +96,7 @@ class BlobClient:
                 data = blob_client.download_blob().readall()
                 return data.decode("utf-8")
         except Exception as e:
-            raise ArticleException(f"Error in retrieving blob data: {e}") from e
+            raise ArticleException(e, sys) from e
 
 
     def upload_blob(self, local_dir, container_name):
@@ -122,11 +124,11 @@ class BlobClient:
                 # read files and upload data to blob storage container 
                 with open(full_file_path, "rb") as fl :
                         data = fl.read()
-                        container_client.upload_blob(name= filename, data=data)
+                        container_client.upload_blob(name= filename, data=data, overwrite=True)
 
             logging.info("Blobs uploaded successfully")
         except Exception as e:
-            raise ArticleException(f"Error in uploading blob data: {e}") from e
+            raise ArticleException(e, sys) from e
 
 
 
