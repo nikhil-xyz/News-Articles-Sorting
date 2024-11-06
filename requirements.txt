@@ -24,5 +24,6 @@ Pillow
 azure-identity
 azure-keyvault-secrets
 azure-storage-blob
+pickle
 
 -e .

@@ -4,6 +4,9 @@ from azure.identity import ClientSecretCredential
 from azure.storage.blob import BlobServiceClient
 from news_project.exception import ArticleException
 from news_project.logger import logging
+
+from tensorflow.keras.models import load_model
+import io
 # account_name : 'newsarticlestorage'
 # container_name : 'newsarticlecontainer' 
 
@@ -49,9 +52,8 @@ class BlobClient:
 
             # download blob data 
             blob_client = container_client.get_blob_client(blob= blob_name)
-            print(blob_name)
+            
             binary_data = blob_client.download_blob().readall()
-            print("________________________________________________________________here")
             return binary_data
         except Exception as e:
             raise ArticleException(e, sys) from e
