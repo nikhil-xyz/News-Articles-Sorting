@@ -11,6 +11,7 @@ automated news classification could be used to identify topics of untracked news
 make individual suggestions based on the user’s prior interests.
 
 ## Tools
+![tools](https://github.com/nikhil-xyz/News-Articles-Sorting/blob/main/flowcharts/news.png)
 - Anaconda: https://www.anaconda.com/
 - Vs code: https://code.visualstudio.com/download
 - Git: https://git-scm.com/
@@ -20,6 +21,8 @@ make individual suggestions based on the user’s prior interests.
 - Dagshub : https://dagshub.com/
 - Whimsical : https://whimsical.com/
 - MongoDB: https://account.mongodb.com/account/login
+- Azure: https://portal.azure.com/
+- Gradio: https://www.gradio.app/
 - Data Link : https://www.kaggle.com/datasets/jacopoferretti/bbc-articles-dataset
 
 ## Git Commands
@@ -161,3 +164,19 @@ Following bar chart shows the evaluation of testing data on different matrices.
 
 ![Image](https://github.com/nikhil-xyz/News-Articles-Sorting/blob/main/flowcharts/model_performance_bar_plot.png)
 
+
+## AZURE-CICD-Deployment-with-Github-Actions
+### Terminal Commands
+```
+docker build -t <container_registry_name>.azurecr.io/<image_name>:<image_tag> .
+
+docker login <container_registry_name>.azurecr.io
+
+docker push <container_registry_name>.azurecr.io/<image_name>:<image_tag>
+```
+
+### Deployment Steps:
+- Build the Docker image of the Source Code
+- Push the Docker image to Container Registry
+- Launch the Web App Server in Azure
+- Pull the Docker image from the container registry to Web App server and run
