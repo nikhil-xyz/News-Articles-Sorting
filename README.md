@@ -165,7 +165,7 @@ Following bar chart shows the evaluation of testing data on different matrices.
 
 ![Image](https://github.com/nikhil-xyz/News-Articles-Sorting/blob/main/flowcharts/model_performance_bar_plot.png)
 
-
+<!--
 ## AZURE-CICD-Deployment-with-Github-Actions
 ### Terminal Commands
 ```
@@ -181,3 +181,5 @@ docker push <container_registry_name>.azurecr.io/<image_name>:<image_tag>
 - Push the Docker image to Container Registry
 - Launch the Web App Server in Azure
 - Pull the Docker image from the container registry to Web App server and run
+
+-->
