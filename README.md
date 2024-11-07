@@ -12,6 +12,7 @@ make individual suggestions based on the user’s prior interests.
 
 ## Tools
 ![tools](https://github.com/nikhil-xyz/News-Articles-Sorting/blob/main/flowcharts/news.png)
+
 - Anaconda: https://www.anaconda.com/
 - Vs code: https://code.visualstudio.com/download
 - Git: https://git-scm.com/
