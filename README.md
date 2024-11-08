@@ -1,3 +1,12 @@
+---
+title: News Articles Sorting
+emoji: 🐳
+colorFrom: purple
+colorTo: gray
+sdk: docker
+app_port: 7860
+---
+
 # News-Articles-Sorting
 ## Overview
 With News companies having terabytes of data stored in
@@ -9,6 +18,16 @@ continuously, so it is crucial that the news is classified to allow users to acc
 information of interest quickly and effectively. This way, the machine learning model for
 automated news classification could be used to identify topics of untracked news and/or
 make individual suggestions based on the user’s prior interests.
+
+## Project Summary
+- **Data Source:** The dataset is sourced from a **MongoDB** database, providing a flexible and scalable data storage solution.
+- **Data Preprocessing:** The raw text data is cleaned, preprocessed using techniques like **tokenization**, and **lemmatization** to prepare it for model training.
+- **Model Architecture:** A deep learning model, **recurrent neural network (RNN)** is designed and implemented.
+- **Hyperparameter Tuning:** Hyperparameter tuning and experiment tracking is performed using mlops tools like **MLFLOW** to optimize the model's performance. 
+- **Model Evaluation:** The model's performance is evaluated using appropriate metrics, such as accuracy, precision, recall, and F1-score.
+- **Model Deployment:** The trained model is deployed to a production environment of **HuggingFace** using **Docker** container.
+- **CI/CD Pipeline:** A CI/CD pipeline is implemented to automate the model training, testing, and deployment processes using **Github Actions**.
+   
 
 ## Tools
 ![tools](https://github.com/nikhil-xyz/News-Articles-Sorting/blob/main/flowcharts/news.png)
@@ -47,6 +66,7 @@ export AZURE_CLIENT_ID = <AZURE_CLIENT_ID>
 export AZURE_TENANT_ID = <AZURE_TENANT_ID>
 export AZURE_CLIENT_SECRET = <AZURE_CLIENT_SECRET>
 export AZURE_STORAGE_URL = <AZURE_STORAGE_URL>
+export HF_TOKEN = <HF_TOKEN>
 ```
 
 ## MongoDB for Data Storage and Retrieval
@@ -183,3 +203,8 @@ docker push <container_registry_name>.azurecr.io/<image_name>:<image_tag>
 - Pull the Docker image from the container registry to Web App server and run
 
 -->
+
+## Production URL 
+```
+https://huggingface.co/spaces/hf-nikhil/news-articles-sorting
+```
