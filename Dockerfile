@@ -1,16 +1,19 @@
-# Read the doc: https://huggingface.co/docs/hub/spaces-sdks-docker
-# you will also find guides on how best to write your Dockerfile
+FROM python:3.8
 
-FROM python:3.10
 
 RUN useradd -m -u 1000 user
 USER user
-ENV PATH="/home/user/.local/bin:$PATH"
+# Set home to the user's home directory
+ENV HOME=/home/user \
+	PATH=/home/user/.local/bin:$PATH
+WORKDIR $HOME/app
+# Copy the current directory contents into the container at $HOME/app setting the owner to the user
+COPY --chown=user . $HOME/app
+ADD --chown=user ./. $HOME/app/.
+RUN chown user:user -R $HOME/app
 
-WORKDIR /app
+COPY ./requirements.txt /code/requirements.txt
 
-COPY --chown=user ./requirements.txt requirements.txt
-RUN pip install --no-cache-dir --upgrade -r requirements.txt
-
-COPY --chown=user . /app
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+# RUN python main.py
 CMD ["python", "app.py"]

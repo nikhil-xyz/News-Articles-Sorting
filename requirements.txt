@@ -1,9 +1,7 @@
 numpy
 pandas
-kagglehub
 scikit-learn
 matplotlib
-evidently
 seaborn
 ipykernel
 dvc
@@ -22,8 +20,6 @@ pymongo
 spacy==3.6.1
 Pillow
 azure-identity
-azure-keyvault-secrets
 azure-storage-blob
-# pickle
 
 -e .

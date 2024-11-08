@@ -1,3 +1,4 @@
+import os
 import sys
 import gradio as gr
 
@@ -23,5 +24,9 @@ interface = gr.Interface(fn=prediction,
                          outputs='label',
                          title="News Articles Sorting",
                          css=".gr-title {text-align: center; font-family: 'Times New Roman', serif; font-size: 36px;}")
+
+if not os.path.isdir('artifact'):
+    logging.info('Executing python main.py')
+    system.os('python main.py')
 
 interface.launch()

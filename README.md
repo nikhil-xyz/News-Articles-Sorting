@@ -43,6 +43,7 @@ make individual suggestions based on the user’s prior interests.
 - MongoDB: https://account.mongodb.com/account/login
 - Azure: https://portal.azure.com/
 - Gradio: https://www.gradio.app/
+- HuggingFace : https://huggingface.co/
 - Data Link : https://www.kaggle.com/datasets/jacopoferretti/bbc-articles-dataset
 
 ## Git Commands

@@ -1,6 +1,7 @@
 import sys
 import numpy as np
 import pickle
+import dill
 
 from news_project.exception import ArticleException
 from news_project.logger import logging
@@ -32,6 +33,7 @@ class PredictionPipeline:
             # tokenizer = self.client.get_binary_blob_data(CONTAINER_NAME, BLOB_NAME_TOKENIZER)
             # # converting byte format data to tokenizer
             # tokenizer = pickle.loads(tokenizer)
+           
 
             # logging.info('Loading the model from Azure Blob')
             # model = self.client.get_binary_blob_data(CONTAINER_NAME, BLOB_NAME_MODEL)
