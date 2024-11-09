@@ -17,4 +17,10 @@ jobs:
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+          AZURE_STORAGE_URL: ${{ secrets.AZURE_STORAGE_URL }}
+          AZURE_SECRET_NAME: ${{ secrets.AZURE_SECRET_NAME }}
         run: git push --force https://hf-nikhil:$HF_TOKEN@huggingface.co/spaces/hf-nikhil/news-articles-sorting main
