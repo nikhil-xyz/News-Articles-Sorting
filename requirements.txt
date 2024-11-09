@@ -3,7 +3,6 @@ pandas
 scikit-learn
 matplotlib
 seaborn
-ipykernel
 dvc
 mlflow
 PyYAML
@@ -15,7 +14,6 @@ dagshub
 gradio
 nltk
 tensorflow
-keras
 pymongo
 spacy==3.6.1
 Pillow
