@@ -6,6 +6,12 @@ from news_project.logger import logging
 from news_project.exception import ArticleException
 from news_project.pipeline.prediction_pipeline import PredictionPipeline
 
+
+# Check if the model has been trained before launching the application
+if not os.path.isdir('artifact'):
+    logging.info('Executing python main.py')
+    os.system('python main.py')
+
 obj = PredictionPipeline()
 def prediction(article):
     """
@@ -25,8 +31,5 @@ interface = gr.Interface(fn=prediction,
                          title="News Articles Sorting",
                          css=".gr-title {text-align: center; font-family: 'Times New Roman', serif; font-size: 36px;}")
 
-if not os.path.isdir('artifact'):
-    logging.info('Executing python main.py')
-    system.os('python main.py')
 
 interface.launch()
