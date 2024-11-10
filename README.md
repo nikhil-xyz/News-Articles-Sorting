@@ -203,7 +203,6 @@ docker push <container_registry_name>.azurecr.io/<image_name>:<image_tag>
 - Launch the Web App Server in Azure
 - Pull the Docker image from the container registry to Web App server and run
 
--->
 
 
 ## Production URL 
